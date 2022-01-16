@@ -195,7 +195,7 @@ postgres=# DROP DATABASE <DB_NAME>;
 
 The initial database url will be:
 
-`postgres://postgres:<PASSWORD>@localhost:5432/postgres`
+`postgres://postgres:postgres@localhost:5432/postgres`
 
 Run the command from the project root to create the database and service user
 

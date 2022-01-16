@@ -1,6 +1,6 @@
 # DJ AWS - Amazon Web Services + Django Made Easy
 
-[![codecov](https://codecov.io/gh/adrianmeraz/dj-aws/branch/master/graph/badge.svg?token=SV085I4DGJ)](https://codecov.io/gh/adrianmeraz/dj-starter)
+[![codecov](https://codecov.io/gh/adrianmeraz/dj-aws/branch/main/graph/badge.svg?token=4LRGQS70M6)](https://codecov.io/gh/adrianmeraz/dj-aws)
 ![test-status](https://github.com/adrianmeraz/dj-aws/actions/workflows/dev.yml/badge.svg?branch=dev)
 
 ## Setup Local Dev Environment

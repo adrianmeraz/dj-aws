@@ -1,4 +1,4 @@
-name: Production Deploy
+name: Production Build and Publish
 on:
   push:
     branches:

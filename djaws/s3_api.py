@@ -4,18 +4,26 @@ import uuid
 
 import boto3
 from botocore.exceptions import ClientError
+from django.conf import settings
+from djstarter import decorators, utils as core_utils
 
 from djaws import decorators as aws_decorators
 from djaws.s3.exceptions import S3Error, BucketAlreadyExists, BucketAlreadyOwnedByYouError
 from djaws.utils import ClientErrorResponse
-from djstarter import decorators, utils as core_utils
 
 logger = logging.getLogger(__name__)
 
 
 def s3_session_client(*args, **kwargs):
     session = boto3.session.Session()
-    return session.client('s3', *args, **kwargs)
+    return session.client(
+        's3',
+        region_name=settings.AWS_DEFAULT_REGION,
+        aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
+        aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
+        *args,
+        **kwargs
+    )
 
 
 def create_public_access_bucket(s3_client, bucket, region=None):

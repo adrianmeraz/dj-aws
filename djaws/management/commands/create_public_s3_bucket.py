@@ -15,7 +15,7 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--region",
-            default='us-west-2',
+            default=None,
             type=str,
             help="S3 Region",
         )

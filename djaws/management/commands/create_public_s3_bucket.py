@@ -32,3 +32,4 @@ class Command(BaseCommand):
             raise e
         else:
             self.stdout.write(self.style.MIGRATE_LABEL(f'Successfully created Public S3 Bucket: {bucket}'))
+

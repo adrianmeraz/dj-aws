@@ -317,6 +317,13 @@ coverage html
 
 This creates the directory coverage html. Open the index.html to see the full report
 
+### Updating pypi package
+
+```
+poetry build
+poetry publish
+```
+
 ### Coverage Issues
 
 If the numbers reported aren't what's expected, or tests are missing, verify that an empty `__init__.py`

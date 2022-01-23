@@ -34,8 +34,7 @@ jobs:
         virtualenvs-create: true
         virtualenvs-in-project: true
 
-    - name: Build Package
-      run: poetry build
-
-    - name: Publish Package
-      run: poetry publish
+    - name: Build and publish to pypi
+      uses: JRubics/poetry-publish@v1.9
+      with:
+        pypi_token: ${{ secrets.PYPI_TOKEN }}

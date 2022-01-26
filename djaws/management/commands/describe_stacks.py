@@ -16,13 +16,16 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
 
         stack_name = kwargs['stack_name']
-        self.stdout.write(self.style.MIGRATE_LABEL(f'Describing Stack: {stack_name}'))
         cf_client = cloudformation_api.cf_session()
         try:
-            cloudformation_api.describe_stacks(cf_client, stack_name=stack_name)
+            r_stacks = cloudformation_api.describe_stacks(cf_client, stack_name=stack_name)
         except Exception as e:
             self.stdout.write(self.style.ERROR(f'Error while running command:\n{str(e)}'))
             raise e
         else:
+            stack = r_stacks.first_stack
             self.stdout.write(self.style.MIGRATE_LABEL(f'Successfully got stack details.'))
+            msg = f'id: {stack.stack_id}\nname: {stack.stack_name}\nstatus: {stack.stack_status}'
+            self.stdout.write(self.style.MIGRATE_LABEL(msg))
+
 

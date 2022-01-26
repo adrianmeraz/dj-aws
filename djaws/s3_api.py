@@ -26,7 +26,7 @@ def s3_session_client(*args, **kwargs):
     )
 
 
-def create_public_access_bucket(s3_client, bucket, region=None):
+def create_public_access_bucket(s3_client, bucket, region):
     create_bucket(s3_client, bucket=bucket, region=region)
     put_public_access_block(
         s3_client,
@@ -62,21 +62,21 @@ def create_public_access_bucket(s3_client, bucket, region=None):
 
 
 @aws_decorators.wrap_and_reraise_s3_errors
-def create_bucket(s3_client, bucket, region=None, **kwargs):
+def create_bucket(s3_client, bucket, region, **kwargs):
     """Create an S3 bucket in a specified region
-
-    If a region is not specified, the bucket is created in the S3 default
-    region (us-east-1).
 
     :param s3_client: S3 Client
     :param bucket: Bucket to create
-    :param region: String region to create bucket in, e.g., 'us-west-2'
+    :param region: String region to create bucket in, e.g., 'us-east-1'
     :return: True if bucket created, else False
     """
 
     # Create bucket
     try:
-        if region is None:
+        # This is really stupid S3 quirk. Technically, us-east-1 one has no S3,
+        # it's actually "US Standard", or something.
+        # More here: https://github.com/boto/boto3/issues/125
+        if region == "us-east-1":
             r_bucket = s3_client.create_bucket(Bucket=bucket)
         else:
             r_bucket = s3_client.create_bucket(

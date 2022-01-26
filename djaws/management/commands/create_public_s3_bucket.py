@@ -15,16 +15,17 @@ class Command(BaseCommand):
         )
         parser.add_argument(
             "--region",
-            default=None,
+            default='us-east-1',
             type=str,
             help="S3 Region",
         )
 
     def handle(self, *args, **kwargs):
-        s3_client = s3_api.s3_session_client()
+
         bucket = kwargs['bucket_name']
         region = kwargs['region']
         self.stdout.write(self.style.MIGRATE_LABEL(f'Creating Public S3 Bucket: {bucket}'))
+        s3_client = s3_api.s3_session_client()
         try:
             s3_api.create_public_access_bucket(s3_client, bucket=bucket, region=region)
         except Exception as e:

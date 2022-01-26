@@ -21,6 +21,7 @@ class CreatePublicAccessBucketTests(TestCase):
         r_bucket = s3_api.create_public_access_bucket(
             s3_api.s3_session_client(),
             bucket='my-test-bucket-2',
+            region='us-west-2'
         )
         self.assertTrue(r_bucket)
 
@@ -38,7 +39,7 @@ class CreateBucketTests(TestCase):
         r_bucket = s3_api.create_bucket(
             mock_client,
             bucket='bucket1',
-            region='us-west-1',
+            region='us-west-2',
         )
         self.assertEquals(
             r_bucket.location,
@@ -52,6 +53,7 @@ class CreateBucketTests(TestCase):
         r_bucket = s3_api.create_bucket(
             mock_client,
             bucket='bucket1',
+            region='us-west-2',
         )
         self.assertEquals(
             r_bucket.location,
@@ -81,6 +83,7 @@ class CreateBucketTests(TestCase):
             s3_api.create_bucket(
                 mock_client,
                 bucket='bucket1',
+                region='us-west-2',
             )
 
 

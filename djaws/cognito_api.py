@@ -10,7 +10,7 @@ from djaws.utils import ClientErrorResponse
 from djstarter import utils as core_utils
 
 
-def new_cognito_client(*args, **kwargs):
+def cognito_session_client(*args, **kwargs):
     session = boto3.session.Session()
     return session.client('cognito-idp', *args, **kwargs,)
 

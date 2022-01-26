@@ -16,7 +16,7 @@ class Command(BaseCommand):
     def handle(self, *args, **kwargs):
 
         stack_name = kwargs['stack_name']
-        cf_client = cloudformation_api.cf_session()
+        cf_client = cloudformation_api.cf_session_client()
         try:
             r_stacks = cloudformation_api.describe_stacks(cf_client, stack_name=stack_name)
         except Exception as e:

@@ -5,6 +5,7 @@ from django.test import TestCase
 from djaws import decorators
 from djaws.cognito.exceptions import CognitoError, CognitoUserNotFoundError
 from djaws.s3.exceptions import S3Error, BucketAlreadyExists
+from djaws.cloudformation.exceptions import CFError
 
 
 class WrapAndReraiseS3ErrorsTests(TestCase):
@@ -35,5 +36,21 @@ class WrapAndReraiseCognitoErrorsTests(TestCase):
         func = Mock(side_effect=Exception)
         decorated_function = decorators.wrap_and_reraise_cognito_errors(func)
         with self.assertRaises(CognitoError):
+            decorated_function()
+        self.assertEquals(func.call_count, 1)
+
+
+class WrapAndReraiseCloudFormationErrorsTests(TestCase):
+    def test_cognito_pass_thru(self):
+        func = Mock(side_effect=CFError)
+        decorated_function = decorators.wrap_and_reraise_cloudformation_errors(func)
+        with self.assertRaises(CFError):
+            decorated_function()
+        self.assertEquals(func.call_count, 1)
+
+    def test_exception(self):
+        func = Mock(side_effect=Exception)
+        decorated_function = decorators.wrap_and_reraise_cloudformation_errors(func)
+        with self.assertRaises(CFError):
             decorated_function()
         self.assertEquals(func.call_count, 1)

@@ -9,7 +9,7 @@ from djaws.utils import ClientErrorResponse
 from djstarter import utils as dj_utils
 
 
-def cf_session(*args, **kwargs):
+def cf_session_client(*args, **kwargs):
     session = boto3.session.Session()
     return session.client(
         'cloudformation',

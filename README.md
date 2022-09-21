@@ -311,6 +311,14 @@ poetry run python manage.py migrate
 poetry run python manage.py createsuperuser
 ```
 
+## Admin Commands
+
+### Create Public S3 Bucket
+
+```
+poetry run python manage.py create_public_s3_bucket --bucket_name <BUCKET_NAME> --region <S3_REGION>
+```
+
 ## Testing
 
 Specify settings with `--settings`

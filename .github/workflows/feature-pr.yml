@@ -11,7 +11,7 @@ jobs:
   run:
     runs-on: ubuntu-20.04
     env:
-      PYTHON: '3.8'
+      PYTHON: '3.9'
       AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
       AWS_DEFAULT_REGION: ${{secrets.AWS_DEFAULT_REGION}}
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
@@ -39,7 +39,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@70e2063f710ccef775ec81349f16fb39eecee9ef # v2.2.2
       with:
-        python-version: 3.8
+        python-version: 3.9
 
     # https://www.peterbe.com/plog/install-python-poetry-github-actions-faster
     - name: Load cached ~/.local

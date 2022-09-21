@@ -134,6 +134,36 @@ Add to .env file as _SECRET_KEY_ environment variable
 
 ## Local Database Setup
 
+### Windows
+
+#### Install pgadmin
+
+#### Create User
+
+Right click Login/Group Roles -> Create -> Login/Group Role
+
+1. Click General Tab -> Set Name to "redexapi"
+
+2. Click Definition Tab -> Set Password to "redexapi"
+
+3. Click Privileges Tab -> Toggle the following:
+   1. "Can Login" = On
+   2. "Create databases" = On
+
+A new user with the name "redexapi" will be added to the "Login/Group Roles" list
+
+#### Create Database
+
+Right click on Databases -> Create -> Database
+
+1. Click General Tab -> Set Database to "redexapi"
+
+2. Set Owner to "redexapi"
+
+Name the database "redexapi"
+
+Click "Save"
+
 ### Setup Postgres Local Instance (Ubuntu)
 
 ```

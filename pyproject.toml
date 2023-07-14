@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dj-aws"
-version = "0.1.5"
+version = "0.1.6"
 description = "Django + AWS made easy"
 authors = [
     "Adrian <adrian@rydeas.com>"
@@ -15,13 +15,13 @@ exclude = [
 ]
 
 [tool.poetry.dependencies]
-python = "~3.9"
+python = "~3.10"
 
 boto3 = "~1.24.77"
 Django = "~3.2.15"
 PyJWT = {extras = ["crypto"], version = "^2.3.0"}
 
-dj-starter = "~0.1.12"
+dj-starter = "~0.1.16"
 
 [tool.poetry.dev-dependencies]
 coverage = "~6.4"

@@ -319,6 +319,11 @@ poetry run python manage.py createsuperuser
 poetry run python manage.py create_public_s3_bucket --bucket_name <BUCKET_NAME> --region <S3_REGION>
 ```
 
+Example:
+```
+poetry run python manage.py create_public_s3_bucket --bucket_name dj-aws-static-dev-1 --region us-west-2
+```
+
 ## Testing
 
 Specify settings with `--settings`

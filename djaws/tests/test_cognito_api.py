@@ -6,8 +6,7 @@ from botocore.exceptions import ClientError
 from django.test import TestCase
 
 from djaws import cognito_api
-from djaws.cognito.exceptions import (CognitoUsernameExistsError, CognitoUserPasswordValidationError,
-                                    CognitoUserNotAuthorizedError)
+from djaws.cognito.exceptions import (CognitoUsernameExistsError, CognitoUserPasswordValidationError, CognitoUserNotAuthorizedError)
 
 
 class SignupNewUserTests(TestCase):

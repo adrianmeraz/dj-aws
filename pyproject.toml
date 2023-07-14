@@ -24,7 +24,7 @@ PyJWT = {extras = ["crypto"], version = "^2.3.0"}
 dj-starter = "~0.1.16"
 
 [tool.poetry.dev-dependencies]
-coverage = "~7.2.7"
+coverage = "~6.4"
 respx = "~0.20.0"
 tblib = "~2.0.0"
 
